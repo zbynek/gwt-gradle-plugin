@@ -33,6 +33,7 @@ public class GwtPluginExtension {
   private String gwtVersion;
   private boolean codeserver = true;
   private boolean elemental = false;
+  private boolean user = true;
   private File devWar;
   private File extraDir;
   private File workDir;
@@ -95,6 +96,14 @@ public class GwtPluginExtension {
 
   public void setElemental(boolean elemental) {
     this.elemental = elemental;
+  }
+
+  public boolean isUser() {
+    return user;
+  }
+
+  public void setUser(boolean user) {
+    this.user = user;
   }
 
   public List<String> getDevModules() {

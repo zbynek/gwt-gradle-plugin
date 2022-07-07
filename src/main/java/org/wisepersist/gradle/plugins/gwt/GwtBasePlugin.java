@@ -121,8 +121,10 @@ public class GwtBasePlugin implements Plugin<Project> {
       } else {
         project.getDependencies().add(GWT_SDK_CONFIGURATION,
             gwtDependency(GWT_DEV, parsedGwtVersion));
-        project.getDependencies().add(GWT_SDK_CONFIGURATION,
-            gwtDependency(GWT_USER, parsedGwtVersion));
+        if (extension.isUser()) {
+          project.getDependencies().add(GWT_SDK_CONFIGURATION,
+                  gwtDependency(GWT_USER, parsedGwtVersion));
+        }
         project.getDependencies()
             .add(JavaPlugin.RUNTIME_ONLY_CONFIGURATION_NAME,
                 gwtDependency(GWT_SERVLET, parsedGwtVersion));
